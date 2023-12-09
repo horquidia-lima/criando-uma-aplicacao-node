@@ -4,8 +4,10 @@ const express = require("express")
 //initialize express
 const app = express() 
 
-app.get("/", (request, response) => {
-  response.send("Hello World")
+app.get("/message/:id", (request, response) => {
+  const {id} = request.params
+  
+  response.send(`Id da mensagem: ${id}`)
 })
 
 const PORT = 3333
