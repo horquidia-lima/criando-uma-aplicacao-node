@@ -6,8 +6,14 @@ const app = express()
 
 app.get("/message/:id", (request, response) => {
   const {id} = request.params
-  
+
   response.send(`Id da mensagem: ${id}`)
+})
+
+app.get("/users", (request, response) => {
+  const {page, limit} = request.query
+
+  response.send(`Pagina: ${page}. Mostrar: ${limit}`)
 })
 
 const PORT = 3333
