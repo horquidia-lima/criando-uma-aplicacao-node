@@ -3,6 +3,7 @@ const express = require("express")
 
 //initialize express
 const app = express() 
+app.use(express.json())
 
 /*app.get("/message/:id", (request, response) => {
   const {id} = request.params
@@ -11,7 +12,9 @@ const app = express()
 })*/
 
 app.post("/users", (request, response) => {
-  response.send(`Voce chamou o POST`)
+  const {name, email, password} = request.body
+
+  response.send(`Usuario ${name} - Email: ${email} e a senha ${password}`)
 })
 
 const PORT = 3333
