@@ -6,6 +6,13 @@ class UsersController {
   * update - PUT para atualizar um registro
   * delete - DELETE para remover um registro
   */
+
+  create(request, response) {
+    const {name, email, password} = request.body
+
+    //response.send(`Usuario ${name} - Email: ${email} e a senha ${password}`)
+    response.json({name, email, password})
+  }
 }
 
 module.exports = UsersController
