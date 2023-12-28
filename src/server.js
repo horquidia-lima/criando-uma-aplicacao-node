@@ -1,5 +1,5 @@
 require("express-async-errors")
-
+const database = require("./database/sqlite")
 const AppError = require("./utils/AppError")
 
 //import express
@@ -12,6 +12,8 @@ const app = express()
 app.use(express.json())
 
 app.use(routes)
+
+database() //executar my DB
 
 /*app.get("/message/:id", (request, response) => {
   const {id} = request.params
