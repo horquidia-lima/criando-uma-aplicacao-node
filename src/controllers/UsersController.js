@@ -69,7 +69,7 @@ class UsersController {
         throw new AppError("A senha antiga nao confere")
       }
 
-      user.password = await has(password, 8)
+      user.password = await hash(password, 8)
     }
 
     await database.run(`
@@ -77,9 +77,9 @@ class UsersController {
       name = ?,
       email = ?,
       password = ?,
-      updated_at = ?
+      updated_at = DATETIME('now')
       WHERE id = ?`,
-      [user.name, user.email, user.password, new Date(), id]
+      [user.name, user.email, user.password, id]
       )
 
       return response.json()
