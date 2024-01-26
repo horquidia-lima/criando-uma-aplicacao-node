@@ -16,5 +16,6 @@ const notesRoutes = Router()
 const notesController = new NotesController() //instaciando a class (guardando na memoria)
 
 notesRoutes.post("/:user_id", notesController.create)
+notesRoutes.get("/:id", notesController.show)
 
 module.exports = notesRoutes
